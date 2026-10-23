@@ -1,0 +1,22 @@
+<InterfaceView version="1.2" componentURL="/home/taste/.local/share/QtProject/QtCreator/components_library/.git_bares/CMAC256_bare">
+<Function id="{dd7a8ce3-7e8d-48cf-878b-7af80b628079}" name="CMAC256" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" instances_min="1" startup_priority="1" instances_max="1">
+    <Property name="TASTE_IV_Properties::Default_Codegen" value="C"/>
+<Provided_Interface id="{bcbd6b79-755b-4f9b-97f8-96fe74afab81}" name="generate" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0">
+    <Input_Parameter name="key" type="AES256-Key" encoding="NATIVE"/>
+    <Input_Parameter name="message" type="CMAC-Message" encoding="NATIVE"/>
+    <Output_Parameter name="tag" type="CMAC-Tag" encoding="NATIVE"/>
+    <Output_Parameter name="status" type="Crypto-Status" encoding="NATIVE"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+<UI version="1.0" ><Entity id="{dd7a8ce3-7e8d-48cf-878b-7af80b628079}"><Taste coordinates="47000 22000 60000 30000">
+</Taste>
+</Entity><Entity id="{bcbd6b79-755b-4f9b-97f8-96fe74afab81}"><Taste coordinates="47000 26000">
+</Taste>
+</Entity>
+</UI>
+
+</InterfaceView>

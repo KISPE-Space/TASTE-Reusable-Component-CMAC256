@@ -1,0 +1,19 @@
+Uartotherend-Datamodel DEFINITIONS ::=
+BEGIN
+--  This file was generated automatically by OpenGEODE
+IMPORTS
+   AES256-Key, AES-Block, CMAC-Message, CMAC-Tag, Crypto-Status, AES256Key, AES256ExpandedKey, AES256Block, AES256Buffer, AES256VariableLengthBuffer, AES256Context, AES256ECBContext, CMACAES256Context FROM CMAC-AES-256-RH71-DATAVIEW
+   T-Int32, T-UInt32, T-Int8, T-UInt8, T-Boolean, T-Null-Record, T-Runtime-Error FROM TASTE-BasicTypes
+   PID-Range, PID FROM System-Dataview;
+
+Uartotherend-States ::= ENUMERATED {wait}
+
+Uartotherend-Context ::= SEQUENCE {
+   state Uartotherend-States,
+   init-done BOOLEAN,
+   sender PID,
+   offspring PID
+}
+
+Uartotherend-T-Runtime-Error-Selection ::= ENUMERATED {noerror-present(1), encodeerror-present(2), decodeerror-present(3)}
+END

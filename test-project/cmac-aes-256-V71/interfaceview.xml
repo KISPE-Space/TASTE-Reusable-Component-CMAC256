@@ -1,0 +1,125 @@
+<InterfaceView version="1.3" asn1file="cmac-aes-256-V71.acn" UiFile="interfaceview.ui.xml" modifierHash="383508e">
+<Function id="{23879719-5033-4f2e-8c2f-89fb77aec54d}" name="CMAC256" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" componentURL="/home/taste/.local/share/QtProject/QtCreator/components_library/.git_bares/CMAC256_bare" instances_max="1" instances_min="1" startup_priority="1">
+    <Property name="TASTE_IV_Properties::Default_Codegen" value="C"/>
+<Provided_Interface id="{406e1062-587f-47bc-b766-cbda4d3a1b56}" name="generate" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0">
+    <Input_Parameter name="key" type="AES256-Key" encoding="NATIVE"/>
+    <Input_Parameter name="message" type="CMAC-Message" encoding="NATIVE"/>
+    <Output_Parameter name="tag" type="CMAC-Tag" encoding="NATIVE"/>
+    <Output_Parameter name="status" type="Crypto-Status" encoding="NATIVE"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function id="{49adaf32-dea5-46c3-91b7-eb1f8c8b5dce}" name="CMACAES256" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" instances_max="1" instances_min="1" startup_priority="1">
+    <Property name="TASTE_IV_Properties::Default_Codegen" value="Ada"/>
+<Provided_Interface id="{c9b93000-bc92-40ed-8e1a-bb0e000568ee}" name="initCtx" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" is_observable="false" is_alarm="false">
+    <Output_Parameter name="ctx" type="CMACAES256Context" encoding="NATIVE"/>
+    <Input_Parameter name="key" type="AES256Key" encoding="NATIVE"/>
+</Provided_Interface>
+
+<Provided_Interface id="{f3f7e53e-22f1-438e-b343-905e3f1e399d}" name="digest" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" is_observable="false" is_alarm="false">
+    <Output_Parameter name="ctx" type="CMACAES256Context" encoding="NATIVE"/>
+    <Input_Parameter name="buf" type="AES256VariableLengthBuffer" encoding="NATIVE"/>
+    <Output_Parameter name="tag" type="AES256Buffer" encoding="NATIVE"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function id="{751d7af0-e17f-4190-b485-9051621aa0a4}" name="UartOtherEnd" is_type="NO" language="SDL" default_implementation="default" fixed_system_element="NO" required_system_element="NO" instances_max="1" instances_min="1" startup_priority="1">
+    <Property name="TASTE_IV_Properties::Default_Codegen" value="C"/>
+<Provided_Interface id="{a3540b91-898a-4a5a-be2d-18d4a6165cd8}" name="samv71tx" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" stack_size="1024" queue_size="1" priority="1" miat="0">
+    <Input_Parameter name="iByteOut" type="T-UInt8" encoding="ACN"/>
+</Provided_Interface>
+
+<Required_Interface id="{437aa20e-0772-489d-9d71-5537f05ce2fc}" name="samrh71rx" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" stack_size="1024" queue_size="1" priority="1" miat="0">
+    <Input_Parameter name="iByteIn" type="T-UInt8" encoding="ACN"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="SDL"/>
+    </Implementations>
+</Function>
+
+<Function id="{c7f4650d-00e0-40e2-a967-8c83ca711592}" name="TestHarness" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" instances_max="1" instances_min="1" startup_priority="1">
+    <Property name="TASTE_IV_Properties::Default_Codegen" value="Ada"/>
+<Provided_Interface id="{a078cae8-5832-4d63-831c-60ab7b1fa2dd}" name="run" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" stack_size="16384" dispatch_offset="0" period="1000" priority="1">
+</Provided_Interface>
+
+<Provided_Interface id="{d96c029d-f2b2-4c54-af96-c7521ffe7f2b}" name="samv71rx" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" stack_size="1024" queue_size="1" priority="1" miat="0">
+    <Input_Parameter name="iByteIn" type="T-UInt8" encoding="ACN"/>
+</Provided_Interface>
+
+<Required_Interface id="{16eca494-8ccd-467c-a4a7-43dc0664727c}" name="CMACAES256Digest" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" is_observable="false" is_alarm="false">
+    <Output_Parameter name="ctx" type="CMACAES256Context" encoding="NATIVE"/>
+    <Input_Parameter name="buf" type="AES256VariableLengthBuffer" encoding="NATIVE"/>
+    <Output_Parameter name="tag" type="AES256Buffer" encoding="NATIVE"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface id="{85ecbe23-94bd-485e-b631-6870d14fd427}" name="CMACAES256InitCtx" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" is_observable="false" is_alarm="false">
+    <Output_Parameter name="ctx" type="CMACAES256Context" encoding="NATIVE"/>
+    <Input_Parameter name="key" type="AES256Key" encoding="NATIVE"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface id="{07c0a352-c3e8-4c6c-ac68-1ea71ba13137}" name="samv71tx" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" stack_size="1024" queue_size="1" priority="1" miat="0">
+    <Input_Parameter name="iByteOut" type="T-UInt8" encoding="ACN"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface id="{6d23e809-1933-416f-b4ee-9fd6f5bddcf3}" name="CMAC256Generate" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0">
+    <Input_Parameter name="key" type="AES256-Key" encoding="NATIVE"/>
+    <Input_Parameter name="message" type="CMAC-Message" encoding="NATIVE"/>
+    <Output_Parameter name="tag" type="CMAC-Tag" encoding="NATIVE"/>
+    <Output_Parameter name="status" type="Crypto-Status" encoding="NATIVE"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection id="{d5bb7c01-9ef0-4cdc-964f-7cab1a22a8df}" required_system_element="NO">
+    <Source iface_id="{16eca494-8ccd-467c-a4a7-43dc0664727c}" func_name="TestHarness" ri_name="CMACAES256Digest" />
+    <Target iface_id="{f3f7e53e-22f1-438e-b343-905e3f1e399d}" func_name="CMACAES256" pi_name="digest" />
+</Connection>
+
+<Connection id="{bd070472-34da-4d11-8aeb-0cf3d294b040}" name="UartOtherEnd_samrh71rx____TestHarness_samv71rx" required_system_element="NO">
+    <Source iface_id="{437aa20e-0772-489d-9d71-5537f05ce2fc}" func_name="UartOtherEnd" ri_name="samrh71rx" />
+    <Target iface_id="{d96c029d-f2b2-4c54-af96-c7521ffe7f2b}" func_name="TestHarness" pi_name="samv71rx" />
+</Connection>
+
+<Connection id="{a94df0a6-2b1f-45f7-b434-edef8df20006}" name="TestHarness_samv71tx____UartOtherEnd_samv71tx" required_system_element="NO">
+    <Source iface_id="{07c0a352-c3e8-4c6c-ac68-1ea71ba13137}" func_name="TestHarness" ri_name="samv71tx" />
+    <Target iface_id="{a3540b91-898a-4a5a-be2d-18d4a6165cd8}" func_name="UartOtherEnd" pi_name="samv71tx" />
+</Connection>
+
+<Connection id="{ea8656f0-98e6-44d7-9b28-7b6727cfb2a8}" name="TestHarness_CMAC256Generate____CMAC256_generate" required_system_element="NO">
+    <Source iface_id="{6d23e809-1933-416f-b4ee-9fd6f5bddcf3}" func_name="TestHarness" ri_name="CMAC256Generate" />
+    <Target iface_id="{406e1062-587f-47bc-b766-cbda4d3a1b56}" func_name="CMAC256" pi_name="generate" />
+</Connection>
+
+<Connection id="{b5a0d8a6-97b1-4935-a56a-4db635132ade}" required_system_element="NO">
+    <Source iface_id="{85ecbe23-94bd-485e-b631-6870d14fd427}" func_name="TestHarness" ri_name="CMACAES256InitCtx" />
+    <Target iface_id="{c9b93000-bc92-40ed-8e1a-bb0e000568ee}" func_name="CMACAES256" pi_name="initCtx" />
+</Connection>
+
+<Comment id="{41c116ed-fb43-4675-baed-3e33a29bd35a}" name="CMAC256 is the Reusable Component for SDLS. All others are prototype work only" required_system_element="NO">
+</Comment>
+
+<Layer name="default" is_visible="true"/>
+
+</InterfaceView>

@@ -1,0 +1,40 @@
+<UI version="1.0" ><Entity id="{3a7453b1-103b-42b8-81f3-1991a56f339b}">
+</Entity><Entity id="{9c858ce7-e396-4238-8bc6-b73bf5dab6d5}"><Taste coordinates="37300 31000 53300 47000">
+</Taste>
+</Entity><Entity id="{ff4a9ddb-26e4-48ab-ac37-34dafdea7fe7}">
+</Entity><Entity id="{e47e52e8-ac22-49d1-8454-9e9806680635}">
+</Entity><Entity id="{b3c1a292-8d35-45a9-aa21-bd12df756198}">
+</Entity><Entity id="{14d24877-1906-4762-8b92-35b4f3d066c0}">
+</Entity><Entity id="{17ea05f8-9759-40c0-aca5-8af9c5258544}"><Taste coordinates="37300 32700">
+</Taste>
+</Entity><Entity id="{cbcefb93-96f8-40ae-8e10-515237764fc7}">
+</Entity><Entity id="{0f97a8f9-2aea-4007-8bd9-f52ce989169a}">
+</Entity><Entity id="{05a7ca08-0125-404a-b93f-6c2e6055861f}">
+</Entity><Entity id="{fdb97b55-9447-4607-a920-76d0ce2bcb27}">
+</Entity><Entity id="{29dee156-c134-4965-a6e4-99dd428da15a}">
+</Entity><Entity id="{69af4241-0183-4a67-b4fe-c2c43401387e}">
+</Entity><Entity id="{aa31a745-c3ed-4f34-998d-7578e398db72}"><Taste coordinates="77000 31000 93000 47000">
+</Taste>
+</Entity><Entity id="{40863cb7-df4c-4047-a5bb-baaa432e8268}"><Taste coordinates="79200 33200 90800 41200">
+</Taste>
+</Entity><Entity id="{b80439ef-abcf-495b-8f9b-16af31d534e7}">
+</Entity><Entity id="{a531be35-2812-43eb-bfe9-a4f85e58d513}"><Taste coordinates="77000 32700">
+</Taste>
+</Entity><Entity id="{82117188-c444-43cf-a79f-f50895e36b64}"><Taste coordinates="77000 36800">
+</Taste>
+</Entity><Entity id="{b08c5255-a670-441c-ba08-bb98869b284e}"><Taste coordinates="77000 40900">
+</Taste>
+</Entity><Entity id="{623ab03c-1e1e-4590-baea-3954e387cd81}"><Taste coordinates="77000 45000">
+</Taste>
+</Entity><Entity id="{d4cae580-2a52-4655-9334-be16a5fd791f}"><Taste coordinates="93000 32700">
+</Taste>
+</Entity><Entity id="{77383620-6a7b-4a92-831e-f7863fe4a22a}"><Taste coordinates="93000 36800">
+</Taste>
+</Entity><Entity id="{db0469e0-fa74-4c38-9ae7-52182e79fec3}"><Taste coordinates="93000 40900">
+</Taste>
+</Entity><Entity id="{c46e9dca-8c3f-4cd5-839e-bed59c970c7c}"><Taste coordinates="36300 32700 34700 32700 34700 29400 64700 29400 64700 32700 76000 32700">
+</Taste>
+</Entity><Entity id="{74041be3-c229-43a7-a496-ff65bb7f64e0}">
+</Entity><Entity id="{b3ab1584-89b5-4be1-940a-6e56904350d8}">
+</Entity>
+</UI>

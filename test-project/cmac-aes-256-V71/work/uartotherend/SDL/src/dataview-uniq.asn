@@ -1,0 +1,105 @@
+CMAC-AES-256-V71-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+   -- Interfaces to the external cryptographic functions
+   -- (required interfaces aes256_encrypt_block and cmac256)
+   sdls-max-cmac-message-size     INTEGER ::= 2368  -- SDLS_MAX_AUTH_PAYLOAD_SIZE (256 + 64 + 2048)
+
+   -- AES-256 key
+   AES256-Key ::= OCTET STRING (SIZE (32))
+
+   -- One 16-octet AES block
+   AES-Block ::= OCTET STRING (SIZE (16))
+
+   -- Message authenticated with AES-CMAC-256: masked frame header,
+   -- Security Header and frame data field
+   CMAC-Message ::= OCTET STRING (SIZE (0 .. sdls-max-cmac-message-size))
+
+   -- Full, untruncated AES-CMAC tag
+   CMAC-Tag ::= OCTET STRING (SIZE (16))
+
+   -- Result of a call to an external cryptographic function
+   Crypto-Status ::= ENUMERATED {
+       ok,
+       failed
+   }
+
+   -- AES-256 uses 256-bit key
+   AES256Key ::= OCTET STRING (SIZE (32))
+   AES256ExpandedKey ::= OCTET STRING (SIZE (240))
+
+   -- AES uses 128-bit blocks
+   AES256Block ::= OCTET STRING (SIZE (16))
+
+   -- AES encrypts buffers 16-bytes at a time
+   AES256Buffer ::= OCTET STRING (SIZE (16))
+
+   -- Some AES modes of operation operate on variable length buffers. Must put upper bound on type though for ASN.1
+   AES256VariableLengthBuffer ::= OCTET STRING (SIZE (0..4096))
+
+   AES256Context ::= SEQUENCE
+   {
+      expandedKey AES256ExpandedKey
+   }
+
+   AES256ECBContext ::= SEQUENCE
+   {
+      aes256Ctx AES256Context
+   }
+
+   CMACAES256Context ::= SEQUENCE
+   {
+      aes256EcbCtx AES256ECBContext
+   }
+END
+
+
+TASTE-BasicTypes DEFINITIONS ::=
+BEGIN
+
+-- Set of TASTE predefined basic types
+
+T-Int32 ::=  INTEGER (-2147483648 .. 2147483647)
+
+T-UInt32 ::= INTEGER (0 .. 4294967295)
+
+T-Int8 ::= INTEGER (-128 .. 127)
+
+T-UInt8 ::= INTEGER (0 .. 255)
+
+T-Boolean ::= BOOLEAN
+
+T-Null-Record ::= SEQUENCE {}
+
+T-Runtime-Error ::= CHOICE {
+   noerror T-UInt32, -- this shall be NULL, but DMT does not support NULL and SEDS does not support empty sequences
+   encodeerror T-Int32, -- the names shall be changed after fix in seds converter (space creator) will be merged
+   decodeerror T-Int32
+}
+
+END
+
+-- Dataview generated on-the-fly providing information on the system
+-- and made available to the user code.
+System-Dataview DEFINITIONS ::=
+BEGIN
+
+   -- Range of PID - type can be used to size arrays of PID type
+   PID-Range ::= INTEGER(0..4)
+
+   -- List of functions (instances) present in the system
+   PID ::= ENUMERATED {
+       cmac256,
+       
+       cmacaes256,
+       
+       testharness,
+       
+       uartotherend,
+       
+       
+       env
+   }
+
+END
+

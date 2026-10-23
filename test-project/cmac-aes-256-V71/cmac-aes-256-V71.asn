@@ -1,0 +1,55 @@
+CMAC-AES-256-V71-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+   -- Interfaces to the external cryptographic functions
+   -- (required interfaces aes256_encrypt_block and cmac256)
+   sdls-max-cmac-message-size     INTEGER ::= 2368  -- SDLS_MAX_AUTH_PAYLOAD_SIZE (256 + 64 + 2048)
+
+   -- AES-256 key
+   AES256-Key ::= OCTET STRING (SIZE (32))
+
+   -- One 16-octet AES block
+   AES-Block ::= OCTET STRING (SIZE (16))
+
+   -- Message authenticated with AES-CMAC-256: masked frame header,
+   -- Security Header and frame data field
+   CMAC-Message ::= OCTET STRING (SIZE (0 .. sdls-max-cmac-message-size))
+
+   -- Full, untruncated AES-CMAC tag
+   CMAC-Tag ::= OCTET STRING (SIZE (16))
+
+   -- Result of a call to an external cryptographic function
+   Crypto-Status ::= ENUMERATED {
+       ok,
+       failed
+   }
+
+   -- AES-256 uses 256-bit key
+   AES256Key ::= OCTET STRING (SIZE (32))
+   AES256ExpandedKey ::= OCTET STRING (SIZE (240))
+
+   -- AES uses 128-bit blocks
+   AES256Block ::= OCTET STRING (SIZE (16))
+
+   -- AES encrypts buffers 16-bytes at a time
+   AES256Buffer ::= OCTET STRING (SIZE (16))
+
+   -- Some AES modes of operation operate on variable length buffers. Must put upper bound on type though for ASN.1
+   AES256VariableLengthBuffer ::= OCTET STRING (SIZE (0..4096))
+
+   AES256Context ::= SEQUENCE
+   {
+      expandedKey AES256ExpandedKey
+   }
+
+   AES256ECBContext ::= SEQUENCE
+   {
+      aes256Ctx AES256Context
+   }
+
+   CMACAES256Context ::= SEQUENCE
+   {
+      aes256EcbCtx AES256ECBContext
+   }
+END
+
